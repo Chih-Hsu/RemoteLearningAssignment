@@ -1,0 +1,41 @@
+RemoteLearningAssignment
+Q1
+Try the statements below in REPL. Please answer that there are correct or not and explain the reasons. 
+
+a. val id = 9527 正確
+
+b. var number : Int = 5.6  
+5.6 是Double或Float 不是Int
+正確寫法 var number = 5.6 或 var number:Double= 5.6
+
+c. var title = "Hello Kotlin!" 正確
+
+d. val content : String = null
+若要設為null必須加上問號 String?
+正確寫法 val content : String? = null
+
+e. val number : Double? = 556.6 正確
+
+f. var list: List<String>? = listOf(null, null) 
+List<String>?，問號是接在List後的代表整個List可為null，但list的內容物String並沒有? 不可為null
+若listOf(null,null)要成立，正確寫法應該是 val list:List<String?> = listOf(null,null)
+
+g. var list: List<String?>? = listOf("Wayne", "Chen") 正確
+
+h. list.size 
+無法確定list是否為null
+
+i. list?.size 正確
+
+
+Q2
+C. “Your grace.”
+
+
+Q3
+答案
+d. val array = Array(6) { 1000.0.pow(it) }
+
+a. new應該是java的語法，無法直接混用
+b. {100}不是Array，無法調用.withIndex()
+c. 1000.0.pow(10)的值是固定的，不會隨index而改變與output不符
