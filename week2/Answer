@@ -1,0 +1,70 @@
+Q1. What is Inheritance? Try to explain in Mandarin.
+
+A: Inheritance能在建立新的class時沿用被繼承class的property 和 methods，
+若是需要創建複數有類似功能的class時，可以先建立有共用的程式碼的class，再讓其他class做繼承
+能夠減少許多重複的程式碼撰寫
+
+
+
+Q2. How to split a string in Android? Explain your understanding, and even better to attach
+some sample code.
+
+A: 對一個string使用.split("分割符號”)就可以依據分割符號將String切分成一個List<String>
+Ex.
+val currentString = "Sunday / Monday / Tuesday  "
+val splitString = currentString.split("/")   
+//將currentString用/為分介切開，形成包含Sunday,Monday,Tuesday 三個String的list
+ 
+splitString[0]   // 代表第一個物件 Sunday
+splitString[1]   // 代表第二個物件 Monday
+splitString[2]   // 代表第三個物件 Tuesday
+
+
+
+Q3. What kind of key-value pair collection do we use in Android? Attach a sample code that
+uses for-loop to print each key-value pair.
+
+A: Map
+
+val map = mapOf("Apple"to 2 , "Banana"to 8 , "Orange"to 100)
+
+for ((key,value) in map){
+println("$key to $value")
+}
+
+
+
+Q4. What’s the difference between ArrayList and LinkedList? Try to explain in Mandarin.
+
+A:
+ArrayList : 
+1. 資料讀取容易，僅需index就可直接獲得資料
+2. 資料為連續儲存，若要在中間插入資料就需挪動後面所有資料，若資料量龐大，就會需要大量時間(ex. 有10筆資料，要插入一筆在第二順位，原本的2~10順位皆須向後挪一位)
+
+LinkedList
+1. 每筆資料(node) 包含一個value與一個pointer，pointer是指向下一筆資料的資訊
+2. pointer也會占用記憶體空間，因此相對arraylist需耗費更多的記憶體來儲存資料
+3. 資料讀取必須由第一筆資料(Head)開始依序直到找到目標資料，較為費時
+4. 資料更改僅需調整前後筆資料的pointer，耗時低於arraylist
+
+ArrayList的優勢在於讀取快速，適合應用在資料較少更動，單純讀取的用途
+LinkedList則相反，讀取慢、更改快，適合資料常會變動的用途
+
+
+
+Q5. What are Value Type variables? List out the Value Type variables you know.
+
+A: 
+Boolean
+Char  /  String
+Int / Long / Short / Byte
+Double / Float
+
+
+
+Q6. What’s the maximum value of Int? If you want to represent integers larger than the limit,
+what should you do instead of using int variables?
+
+A:
+Max  :  2,147,483,647  (2的31次方減一)
+可以使用toLong()轉為Long類型，可達9,223,372,036,854,775,807
