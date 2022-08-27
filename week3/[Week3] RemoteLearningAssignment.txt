@@ -1,0 +1,70 @@
+# [Week3] RemoteLearningAssignment
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+1. What is Encapsulation? Try to list out the benefits of Encapsulation.
+
+Encapsulation的是利用kotlin可以設定private與public來控制哪些程式碼能被其他類讀取、哪些不能，
+以此將複雜的程式碼包裹起來，只開放特定方式讓外部讀取資訊或控制
+
+a. 可以避免被其他類不小心改動，提高安全性
+b. 減少不同類間的耦合
+c. 能隱藏該類的具體內容，只顯示需要被其他類知道的內容
+d. 使用時不需知道具體細節，只要知道訪問方式
+
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+2. Try to explain what enum is and why we use them.
+
+不同於一般的class，Enum class內的每個常量都是一個實例，
+能快速產生不同的enum constant，只需輸入名稱並用逗號分隔，
+在撰寫有許多不同分類的情況很方便，且enum constant能被直接運用，
+不須另外實例化，簡化許多程式碼的撰寫，
+
+除了節省程式碼之外，變數會限定在有被enum classs列舉的物件，
+不會出現意外的設定，使用起來較安全。
+
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+3. How to use enum in Kotlin? Attach a sample code that uses enum in Kotlin.
+
+enum class Color(rgb:Int){
+RED(0xFF0000),
+GREEN(0x00FF00),
+BLUE(0x0000FF)
+}
+
+data class Car(val color: Color)
+
+fun main(){
+
+    val redCar = Car(Color.RED)
+
+    // val redCar2 = Car(0xFF0000)  無法傳入enum定義的內容以外的變數
+
+println("The color of redCar is ${redCar.color}")
+}
+
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+４. What are the differences between LinearLayout and RelativeLayout? Try to explain in
+detail.
+
+LinearLayout的每個物件彼此排列在同一條直線(水平或垂直)，
+布局單一，沒有複雜的設定，且程式碼較少讀取速度快
+
+RelativeLayout則是透過設定一個物件與另一個物件的相對位置(也可以是與parent的相對位置)來排版，
+可以製作複雜的介面，但因為每個物件都需要寫許多相對位置的程式碼，會較佔記憶體，讀取較慢
+
+
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+５. Try to explain the benefits of ConstraintLayout. Why should you use it?
+
+相較於LinearLayout與RelativeLayout，扁平化的層級搭配bias/chain/guideline等新功能，
+讓ConstraintLayout的在效能更好的同時能處理更複雜的介面
+
+a. 直接從Design拖拉物件來製作UI更容易
+b.可以設定參考線來取得相對位置
+c. 有bias參數，能以百分比設定兩物件間的距離，在不同尺寸的手機間UI顯示會更一致
+e. 即使view的visibility被設為GONE，也不會因此影響其他關聯物件的位置 (解決RelativeLayout會有的問題)
+f. 扁平化層級效能更好，以直線排列為例，使用Chain就可以達成LinearLayout的效果，但卻不需分層
