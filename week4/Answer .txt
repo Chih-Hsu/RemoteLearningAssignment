@@ -1,0 +1,59 @@
+Answer Q1 to Q4 in any text file. Upload the Android project includes Q5 and the text file (Q1
+to Q4) to your GitHub and send a direct message to us that you have completed.
+
+
+
+------------------------------------------------------------------------------------------
+1. What is Polymorphism? Try to explain in Mandarin.
+
+透過繼承相同的class或interface可以讓不同的class擁有同一個function，
+這些繼承來的function可以使用override(原功能需標註abstract 或 open)改寫成不一樣的內容，
+所以當呼叫這個function時，各個子類別會呈現不同的結果，
+同一功能各自表述的概念。
+
+以形狀來說，計算不同形狀的面積公式不一樣，
+就可以透過override來讓計算面積這個function對應不同形狀的計算公式。
+
+
+------------------------------------------------------------------------------------------
+2. Here are the 7 important lifecycle methods of an Activity:
+Try to explain when they are called during the lifecycle of Activity.
+
+onCreate() : 開啟Activity時就會立馬執行，且只會在第一次開啟時執行
+
+onStart() : onCreate後會執行onStart，此時該activity的介面才可以被使用者看到。
+            離開一個activity後(看不到畫面，activity沒有被關閉)再切回來會重新執行onStart()
+
+onResume() : 接續onStart後執行，到此使用者才能真的與介面互動。
+            若是畫面暫停(可能是跳出電話、訊息等等，介面無法互動但可視)後切回Activity也會執行onResume
+
+onPause() : 畫面暫停無法與Activity互動，但畫面仍然可視時，會執行onPause，
+            常見的狀況像是有電話、訊息或是分享內容時會被訊息視窗壓在後面。
+
+onStop() : Activity被轉入後台，無法看見UI時就會執行onStop()
+
+onDestroy() : Activity被銷毀時執行，可能是被使用者關閉，也有可能是系統缺乏資源而被關閉
+
+
+
+------------------------------------------------------------------------------------------
+3. What is the Android Jetpack?
+
+Android Jetpack是Google開發的一系列輔助軟體開發的Library集結而成的工具包
+包含了Foundation / Architecture / Behavior 以及UI
+能直接使用許多功能避免重複開發
+dependency 裏前綴為androidx的即是jetpack的library
+
+
+
+------------------------------------------------------------------------------------------
+4. What is Coroutines? Why do we use it? Try to explain in Mandarin.
+
+What?
+Coroutine是kotlin官方設計的處理多線程的library，類似輕量型的Thread，能透過suspend的功能將耗時複雜的功能
+轉移到非ui的thread執行，避免畫面暫停影響使用體驗。
+且並不綁定在特定Thread，而是可以隨意暫停與切換線程
+
+Why?
+在使用者操作app時，需要僅量避免發生畫面凍結，因為這樣會讓使用者感到困惑，造成不好的使用體驗。
+Coroutine在處理多線程時相較於其他方案更單純，並且程式碼看起來與同步的程式碼類似，更易閱讀與管理。
